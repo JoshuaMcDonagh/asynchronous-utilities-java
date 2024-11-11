@@ -1,7 +1,7 @@
 public class Kettle {
 
     public static void boil() {
-        for(int i = 0; i < 4; i++) {
+        for(int i = 1; i <= 5; i++) {
             System.out.println("Boiling...");
 
             try {
