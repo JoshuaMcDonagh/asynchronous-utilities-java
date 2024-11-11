@@ -1,5 +1,16 @@
+import java.util.HashMap;
+import java.util.Map;
+
+import static java.util.Map.entry;
+
 public abstract class Item {
     String itemName;
+
+    public enum ItemTypes {
+        TEABAG,
+        MILK,
+        CUP
+    }
 
     public void get() {
         for(int i = 1; i <= 4; i++) {
@@ -13,5 +24,13 @@ public abstract class Item {
         }
 
         System.out.println(this.itemName + " has been acquired!");
+    }
+
+    public static Map<String,Item> getAllItems() {
+        return Map.ofEntries(
+                entry(ItemTypes.TEABAG.toString(), new TeaBag()),
+                entry(ItemTypes.MILK.toString(), new Milk()),
+                entry(ItemTypes.CUP.toString(), new Cup())
+        );
     }
 }
